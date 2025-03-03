@@ -1,0 +1,11 @@
+<h3>Add New Product</h3>
+<form (submit)="addProduct()">
+    <input type="text" placeholder="Title" [(ngModel)]="newProduct.title" required />
+    <input type="text" placeholder="Description" [(ngModel)]="newProduct.description" required />
+    <input type="number" placeholder="Price" [(ngModel)]="newProduct.price" required />
+    <input type="text" placeholder="Image URL" [(ngModel)]="newProduct.imageUrl" required />
+    <input type="number" placeholder="Price" [(ngModel)]="newProduct.price" (ngModelChange)="convertPrice($event)" required />
+
+    <button type="submit">Add Product</button>
+</form>
+

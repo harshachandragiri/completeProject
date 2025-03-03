@@ -1,0 +1,30 @@
+<!-- <p>login works!</p><div>
+    <h2>Login</h2>
+    <form (submit)="onLogin()">
+      <input type="email" name="email" placeholder="Email" [(ngModel)]="email" required />
+      <input type="password" name="password" placeholder="Password" [(ngModel)]="password" required />
+      <button type="submit">Login</button>
+      <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    </form>
+  </div>
+   -->
+   <!-- <p>login works!</p>
+   <div>
+     <h2>Login</h2>
+     <form (ngSubmit)="onLogin()">
+       <input type="email" name="email" placeholder="Email" [(ngModel)]="email" required />
+       <input type="password" name="password" placeholder="Password" [(ngModel)]="password" required />
+       <button type="submit">Login</button>
+       <p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
+     </form>
+   </div> -->
+   <div class="login-container">
+    <h2 class="login-title">Login</h2>
+    <form (ngSubmit)="onLogin()" class="login-form">
+      <input type="email" name="email" placeholder="Email" [(ngModel)]="email" required class="login-input" />
+      <input type="password" name="password" placeholder="Password" [(ngModel)]="password" required class="login-input" />
+      <button type="submit" class="login-button">Login</button>
+      <p *ngIf="errorMessage" class="login-error">{{ errorMessage }}</p>
+    </form>
+  </div>
+   

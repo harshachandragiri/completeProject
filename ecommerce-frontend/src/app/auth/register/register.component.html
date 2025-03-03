@@ -1,0 +1,79 @@
+<!-- <div>
+    <h2>Register</h2>
+    <form (submit)="onRegister()">
+      <input type="text" name="name" placeholder="Name" [(ngModel)]="name" required />
+      <input type="email" name="email" placeholder="Email" [(ngModel)]="email" required />
+      <input type="password" name="password" placeholder="Password" [(ngModel)]="password" required />
+      <button type="submit">Register</button>
+      <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    </form>
+  </div>
+    -->
+    <!-- <div id="register-form">
+      <h2 id="register-title">Register</h2>
+      <form (submit)="onRegister()">
+        <input id="register-name" type="text" name="name" placeholder="Name" [(ngModel)]="name" required />
+        <input id="register-email" type="email" name="email" placeholder="Email" [(ngModel)]="email" required />
+        <input id="register-password" type="password" name="password" placeholder="Password" [(ngModel)]="password" required />
+        <button id="register-button" type="submit">Register</button>
+        <p id="register-error" *ngIf="errorMessage">{{ errorMessage }}</p>
+      </form>
+    </div>
+     -->
+     <div id="register-form">
+      <h2 id="register-title">Register</h2>
+      <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
+        
+        <!-- Name Input -->
+        <input 
+          id="register-name" 
+          type="text" 
+          name="name" 
+          placeholder="Name" 
+          [(ngModel)]="name" 
+          #nameInput="ngModel"
+          required 
+          pattern="^[a-zA-Z ]{3,}$"
+        />
+        <p class="error" *ngIf="nameInput.invalid && nameInput.touched">
+          Name must be at least 3 characters (letters & spaces only).
+        </p>
+    
+        <!-- Email Input -->
+        <input 
+          id="register-email" 
+          type="email" 
+          name="email" 
+          placeholder="Email" 
+          [(ngModel)]="email" 
+          #emailInput="ngModel"
+          required 
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+        />
+        <p class="error" *ngIf="emailInput.invalid && emailInput.touched">
+          Enter a valid email address.
+        </p>
+    
+        <!-- Password Input -->
+        <input 
+          id="register-password" 
+          type="password" 
+          name="password" 
+          placeholder="Password" 
+          [(ngModel)]="password" 
+          #passwordInput="ngModel"
+          required 
+          pattern="^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,}$"
+        />
+        <p class="error" *ngIf="passwordInput.invalid && passwordInput.touched">
+          Password must be at least 6 characters, include a number & a special character.
+        </p>
+    
+        <!-- Submit Button -->
+        <button id="register-button" type="submit" [disabled]="registerForm.invalid">Register</button>
+    
+        <!-- Error Message -->
+        <p id="register-error" *ngIf="errorMessage">{{ errorMessage }}</p>
+      </form>
+    </div>
+    

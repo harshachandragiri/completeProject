@@ -1,0 +1,129 @@
+/* Product Container */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 80px;
+  }
+  
+  /* Product Card */
+  .product-card {
+    width: 250px;
+    background: linear-gradient(135deg, #ffffff, #f3f3f3);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  /* Hover Effect */
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Product Image */
+  .product-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Image Hover */
+  .product-image:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Product Title */
+  .product-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  /* Product Description */
+  .product-description {
+    font-size: 14px;
+    color: #555;
+    height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* Product Price */
+  .product-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 10px 0;
+  }
+  
+  /* Buttons */
+  .product-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .add-to-cart,
+  .delete-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Add to Cart Button */
+  .add-to-cart {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .add-to-cart:hover {
+    background-color: #388e3c;
+    transform: scale(1.1);
+  }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Columns */
+    grid-template-rows: repeat(2, auto); /* 2 Rows */
+    gap: 20px;
+    width: 80%; /* Adjust width as needed */
+    justify-content: center;
+  }
+  
+  /* Delete Button */
+  .delete-btn {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.1);
+  }
+  
+  /* Fade-in Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

@@ -1,0 +1,19 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">ECOM</div>
+    <div class="nav-links">
+      
+      <a routerLink="/home" class="nav-item" *ngIf="isAuthenticated">Home</a>
+      <a routerLink="/products" class="nav-item" *ngIf="isAuthenticated">Products</a>
+      <a routerLink="/cart" class="nav-item" *ngIf="isAuthenticated && !isAdmin">Cart</a>
+      <a routerLink="/login" class="nav-item" *ngIf="!authService.isAuthenticated()">Login</a>
+      <a routerLink="/register" class="nav-item" *ngIf="!authService.isAuthenticated()">Register</a>
+      <a routerLink="/admin" class="nav-item" *ngIf="isAuthenticated && isAdmin">Admin</a>
+      <a routerLink="/checkout" class="nav-item" *ngIf="isAuthenticated && !isAdmin">Checkout</a>
+      <a routerLink="/profile" class="nav-item" *ngIf="isAuthenticated">Profile</a>
+      <a routerLink="/my-orders" class="nav-item" *ngIf="isAuthenticated && !isAdmin">My Orders</a>
+
+      <button class="logout-btn" (click)="logout()" *ngIf="authService.isAuthenticated()">Logout</button>
+    </div>
+  </div>
+</nav>

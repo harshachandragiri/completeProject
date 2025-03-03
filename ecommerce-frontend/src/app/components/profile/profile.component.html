@@ -1,0 +1,129 @@
+ <br><br><br><br>
+<label for="date-format">Select Date Format: </label>
+<select id="date-format" [(ngModel)]="selectedDateFormat" (change)="updateDateFormat()">
+
+    <option value="short">Short</option>
+    <option value="medium">Medium</option>
+    <option value="long">Long</option>
+    <option value="fullDate">Full Date</option>
+</select>
+
+<div class="current-time">
+  <strong>Current Time:</strong> {{ currentDate | date: selectedDateFormat }}
+</div>
+
+<div class="profile-container">
+    <h1>Profile</h1>
+  
+    <div *ngIf="!storedImageUrl" class="upload-section">
+      <h2>Upload Profile Picture</h2>
+      <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+  
+      <img *ngIf="imagePreview" [src]="imagePreview" class="preview-img" />
+  
+      <button (click)="uploadImage()" [disabled]="!selectedFile">Upload</button>
+  
+      <div *ngIf="uploadProgress !== null" class="progress-bar">
+        <progress [value]="uploadProgress" max="100"></progress>
+        <span>{{ uploadProgress }}%</span>
+      </div>
+    </div>
+  
+    
+    <div *ngIf="storedImageUrl" class="profile-picture">
+      <h2>Your Profile</h2>
+      <img [src]="storedImageUrl" class="profile-img" />
+      <button (click)="removeProfilePicture()">Remove</button>
+    </div>
+  
+   
+    <div class="form-container" *ngIf="!isSubmitted">
+      <h2>Enter Your Details</h2>
+      <form (ngSubmit)="submitForm()">
+        <input type="text" [(ngModel)]="userData.name" name="name" placeholder="Name" required />
+        <input type="number" [(ngModel)]="userData.age" name="age" placeholder="Age" required />
+  
+        <select [(ngModel)]="userData.gender" name="gender" required>
+          <option value="" disabled selected>Choose Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+  
+        <input type="text" [(ngModel)]="userData.phone" name="phone" placeholder="Phone Number" required />
+  
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  
+   
+    <div class="submitted-data" *ngIf="isSubmitted">
+      <h2>Your Details</h2>
+      <p><strong>Name:</strong> {{ userData.name }}</p>
+      <p><strong>Age:</strong> {{ userData.age }}</p>
+      <p><strong>Gender:</strong> {{ userData.gender }}</p>
+      <p><strong>Phone Number:</strong> {{ userData.phone }}</p>
+      <button (click)="editDetails()">Edit</button>
+    </div>
+  </div>
+
+  
+
+
+  <!-- <br><br><br><br>
+   <label for="date-format">Select Date Format: </label>
+   <select id="date-format" [(ngModel)]="selectedDateFormat" (change)="updateDateFormat()">
+       <option value="short">Short</option>
+       <option value="medium">Medium</option>
+       <option value="long">Long</option>
+       <option value="fullDate">Full Date</option>
+   </select>
+   <div class="current-time">
+       <strong>Current Time:</strong> {{ currentDate | date: selectedDateFormat }}
+   </div>
+
+   <div class="profile-container">
+       <h1>Profile</h1>
+
+       <div class="upload-section">
+           <h2>Upload Profile Picture</h2>
+           <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+           <img *ngIf="imagePreview" [src]="imagePreview" class="preview-img" />
+           <button (click)="uploadImage()" [disabled]="!selectedFile">Upload</button>
+           <div *ngIf="uploadProgress !== null" class="progress-bar">
+               <progress [value]="uploadProgress" max="100"></progress>
+               <span>{{ uploadProgress }}%</span>
+           </div>
+       </div>
+
+       <div class="profile-picture" *ngIf="storedImageUrl">
+           <h2>Your Profile</h2>
+           <img src="image.png" class="profile-img" />
+           <button (click)="removeProfilePicture()">Remove</button>
+       </div>
+
+       <div class="form-container" *ngIf="!isSubmitted">
+           <h2>Enter Your Details</h2>
+           <form (ngSubmit)="submitForm()">
+               <input type="text" [(ngModel)]="userData.name" name="name" placeholder="Name" required />
+               <input type="number" [(ngModel)]="userData.age" name="age" placeholder="Age" required />
+               <select [(ngModel)]="userData.gender" name="gender" required>
+                   <option value="" disabled selected>Choose Gender</option>
+                   <option value="Male">Male</option>
+                   <option value="Female">Female</option>
+                   <option value="Other">Other</option>
+               </select>
+               <input type="text" [(ngModel)]="userData.phone" name="phone" placeholder="Phone Number" required />
+               <button type="submit">Submit</button>
+           </form>
+       </div>
+
+       <div class="submitted-data" *ngIf="isSubmitted">
+           <h2>Your Details</h2>
+           <p><strong>Name:</strong> {{ userData.name }}</p>
+           <p><strong>Age:</strong> {{ userData.age }}</p>
+           <p><strong>Gender:</strong> {{ userData.gender }}</p>
+           <p><strong>Phone Number:</strong> {{ userData.phone }}</p>
+           <button (click)="editDetails()">Edit</button>
+       </div>
+   </div> -->

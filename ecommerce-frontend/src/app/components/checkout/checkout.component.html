@@ -1,0 +1,17 @@
+<h2 id="checkout-title">Checkout</h2>
+
+<form (submit)="placeOrder()" id="checkout-form">
+  <label for="checkout-name">Name:</label>
+  <input type="text" id="checkout-name" [(ngModel)]="orderData.name" required />
+
+  <label for="checkout-address">Address:</label>
+  <input type="text" id="checkout-address" [(ngModel)]="orderData.address" required />
+
+  <label for="checkout-phone">Phone:</label>
+  <input type="text" id="checkout-phone" [(ngModel)]="orderData.phone" required />
+
+  <p id="checkout-total"><strong>Total:</strong> ${{ totalPrice }}</p>
+
+  <button type="submit" id="checkout-button">Place Order</button>
+</form>
+

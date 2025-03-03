@@ -1,0 +1,132 @@
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+select {
+  width: 200px;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+select:hover {
+  border-color: black;
+}
+
+select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+.current-time {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+
+.profile-container {
+  text-align: center;
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+  color: #333;
+}
+
+/* Upload Section */
+.upload-section, .form-container, .submitted-data {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  background: white;
+  transition: transform 0.3s ease-in-out;
+}
+
+.upload-section:hover, .form-container:hover, .submitted-data:hover {
+  transform: scale(1.02);
+}
+
+/* Profile Image */
+.preview-img, .profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 10px;
+  border: 3px solid #007bff;
+  transition: transform 0.3s ease;
+}
+
+.preview-img:hover, .profile-img:hover {
+  transform: scale(1.1);
+}
+
+/* Buttons */
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Progress Bar */
+progress {
+  width: 100%;
+  height: 10px;
+}
+
+/* Form */
+.form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+input, select {
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Submitted Data */
+.submitted-data p {
+  font-size: 16px;
+  margin: 5px 0;
+}

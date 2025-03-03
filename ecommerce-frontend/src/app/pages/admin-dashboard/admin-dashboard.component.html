@@ -1,0 +1,159 @@
+<!-- <h2>Admin Dashboard</h2>
+
+
+<h3>Add New Product</h3>
+<form (submit)="addProduct()">
+  <input type="text" placeholder="Title" [(ngModel)]="newProduct.title" required />
+  <input type="text" placeholder="Description" [(ngModel)]="newProduct.description" required />
+  <input type="number" placeholder="Price" [(ngModel)]="newProduct.price" required />
+  <input type="text" placeholder="Image URL" [(ngModel)]="newProduct.imageUrl" required />
+  <button type="submit">Add Product</button>
+</form>
+
+
+<h3>Products List</h3>
+<table>
+  <tr>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let product of products">
+    <td>{{product.imageUrl}}</td>
+    <td>{{ product.title }}</td>
+    <td>{{ product.description }}</td>
+    <td>{{ product.price }}</td>
+    <td>
+      <button (click)="editProduct(product)">Edit</button>
+      <button (click)="deleteProduct(product._id)">Delete</button>
+    </td>
+  </tr>
+</table>
+
+<h3>Edit Product</h3>
+<form *ngIf="editingProduct" (submit)="updateProduct()">
+  <input type="text" [(ngModel)]="editingProduct.title" required />
+  <input type="text" [(ngModel)]="editingProduct.description" required />
+  <input type="number" [(ngModel)]="editingProduct.price" required />
+  <input type="text" [(ngModel)]="editingProduct.image" required />
+  <button type="submit">Update Product</button>
+  <button type="button" (click)="cancelEdit()">Cancel</button>
+</form>
+
+ -->
+<!-- admin-dashboard.component.html -->
+<!-- admin-dashboard.component.html -->
+<!-- <h2 id="dashboard-title">Admin Dashboard</h2>
+
+
+<h3 id="add-product-title">Add New Product</h3>
+<form id="add-product-form" (submit)="addProduct()">
+    <input id="product-title" type="text" placeholder="Title" [(ngModel)]="newProduct.title" required />
+    <input id="product-description" type="text" placeholder="Description" [(ngModel)]="newProduct.description" required />
+    <input id="product-price" type="number" placeholder="Price" [(ngModel)]="newProduct.price" required />
+    <input id="product-image" type="text" placeholder="Image URL" [(ngModel)]="newProduct.imageUrl" required />
+
+    <input id="product-file" type="file" (change)="handleFileInput($event)" />
+    <button id="add-product-button" type="submit">Add Product</button>
+</form>
+
+
+<h3 id="product-list-title">Products List</h3>
+<table id="product-table">
+    <tr>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </tr>
+    <tr *ngFor="let product of products">
+        <td><img class="product-image" [src]="product.image" alt="Product Image" width="50"></td>
+        <td class="product-title">{{ product.title }}</td>
+        <td class="product-description">{{ product.description }}</td>
+        <td class="product-price">${{ product.price }}</td>
+        <td>
+            <button class="edit-product-button" (click)="editProduct(product)">Edit</button>
+            <button class="delete-product-button" (click)="deleteProduct(product.id)">Delete</button>
+        </td>
+    </tr>
+</table>
+
+
+<h3 id="edit-product-title">Edit Product</h3>
+<form id="edit-product-form" *ngIf="editingProduct" (submit)="updateProduct()">
+    <input id="edit-product-title" type="text" [(ngModel)]="editingProduct.title" required />
+    <input id="edit-product-description" type="text" [(ngModel)]="editingProduct.description" required />
+    <input id="edit-product-price" type="number" [(ngModel)]="editingProduct.price" required />
+    <input id="edit-product-image" type="text" [(ngModel)]="editingProduct.image" required />
+    <button id="update-product-button" type="submit">Update Product</button>
+    <button id="cancel-edit-button" type="button" (click)="cancelEdit()">Cancel</button>
+</form> -->
+
+<h2 id="dashboard-title">Admin Dashboard</h2>
+
+<!-- Add Product Form -->
+<h3 id="add-product-title">Add New Product</h3>
+<form id="add-product-form" (submit)="addProduct()">
+    <input id="product-title" type="text" placeholder="Title" [(ngModel)]="newProduct.title" name="title" required />
+    <input id="product-description" type="text" placeholder="Description" [(ngModel)]="newProduct.description" name="description" required />
+    <input id="product-price" type="number" placeholder="Price" [(ngModel)]="newProduct.price" name="price" required />
+    <input id="product-image" type="text" placeholder="Image URL" [(ngModel)]="newProduct.imageUrl" name="imageUrl" required />
+
+    <!-- <input id="product-file" type="file" (change)="handleFileInput($event)" /> -->
+    <button id="add-product-button" type="submit">Add Product</button>
+</form>
+
+<!-- Date Format Selector
+<label for="date-format">Select Date Format: </label>
+<select id="date-format" [(ngModel)]="selectedDateFormat">
+    <option value="short">Short</option>
+    <option value="medium">Medium</option>
+    <option value="long">Long</option>
+    <option value="fullDate">Full Date</option>
+</select> -->
+
+
+<!-- Display Products -->
+<h3 id="product-list-title">Products List</h3>
+<table id="product-table">
+    <tr>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Date Added</th>
+        <th>Actions</th>
+    </tr>
+    <tr *ngFor="let product of products" [ngClass]="{'strikethrough': product.deleted}">
+
+        <td><img class="product-image" [src]="product.image || product.imageUrl" alt="Product Image" width="50">
+
+        <td class="product-title">{{ product.title }}</td>
+        <td class="product-description">{{ product.description }}</td>
+        <td class="product-price">${{ product.price }}</td>
+        <td>{{ product.createdAt | date: selectedDateFormat }}</td>
+        <td>
+            <button class="edit-product-button" (click)="editProduct(product)">Edit</button>
+            <button class="delete-product-button" (click)="deleteProduct(product.id)">Delete</button>
+        </td>
+    </tr>
+</table>
+
+<!-- Edit Product Form -->
+<h3 id="edit-product-title">Edit Product</h3>
+
+<form id="edit-product-form" *ngIf="editingProduct" (submit)="updateProduct()">
+    <input id="edit-product-title" type="text" [(ngModel)]="editingProduct.title" name="title" required />
+    <input id="edit-product-description" type="text" [(ngModel)]="editingProduct.description" name="description" required />
+    <input id="edit-product-price" type="number" [(ngModel)]="editingProduct.price" name="price" required />
+    <input id="edit-product-image" type="text" [(ngModel)]="editingProduct.imageUrl" name="imageUrl" required />
+
+   
+    <button id="update-product-button" type="submit">Update Product</button>
+    <button id="cancel-edit-button" type="button" (click)="cancelEdit()">Cancel</button>
+</form>
+
+
