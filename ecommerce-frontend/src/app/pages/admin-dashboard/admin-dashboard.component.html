@@ -143,7 +143,7 @@
 </table>
 
 <!-- Edit Product Form -->
-<h3 id="edit-product-title">Edit Product</h3>
+<h3 id="edit-product-title"  *ngIf="editingProduct">Edit Product</h3>
 
 <form id="edit-product-form" *ngIf="editingProduct" (submit)="updateProduct()">
     <input id="edit-product-title" type="text" [(ngModel)]="editingProduct.title" name="title" required />

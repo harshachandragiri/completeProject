@@ -3,6 +3,7 @@ import { CartService } from '../../services/cart.service';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../auth/auth.service';
 
+
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -54,11 +55,13 @@ export class CheckoutComponent implements OnInit {
             this.cartItems = [];
             this.totalPrice = 0;
             this.orderData = { name: '', address: '', phone: '' };
+            window.location.reload();
         },
         error: () => {
             alert('Failed to place order. Please try again.');
         }
     });
+    // window.location.reload();
 }
 
 
